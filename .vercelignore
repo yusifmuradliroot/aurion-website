@@ -1,0 +1,5 @@
+gen.py
+server.py
+*.log
+.vercel
+__pycache__
