@@ -180,7 +180,7 @@ def make_banner(active=""):
     logo_cls = ' class="active"' if active == 'home' else ''
     return f"""<div class="top-banner dark" id="banner">
     <a class="banner-logo" href="/en/">
-      <img src="/en/logo-transparent.png" alt="Aurion">
+      <img src="/en/logo-128.png" alt="Aurion" width="128" height="128" fetchpriority="high" decoding="async">
       <span{logo_cls}>Aurion</span>
     </a>
     <div class="banner-nav">
@@ -203,18 +203,18 @@ def make_banner(active=""):
 
 PAGELOAD = """<div class="page-load-overlay" id="pageLoad">
   <div class="cloud-wall cloud-wall-left">
-    <img class="cloud-img ci-1" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-2" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-7" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-3" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-9" data-cloud alt="" draggable="false">
+    <img class="cloud-img ci-1" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-2" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-7" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-3" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-9" data-cloud alt="" draggable="false" width="1200" height="532">
   </div>
   <div class="cloud-wall cloud-wall-right">
-    <img class="cloud-img ci-4" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-5" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-8" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-6" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-10" data-cloud alt="" draggable="false">
+    <img class="cloud-img ci-4" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-5" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-8" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-6" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-10" data-cloud alt="" draggable="false" width="1200" height="532">
   </div>
 </div>"""
 
@@ -223,18 +223,18 @@ OVERLAYS = """<div class="resize-fx" id="resizeFx"></div>
 <div class="transition-overlay" id="transOverlay"></div>
 <div class="transition-cloud" id="transCloud">
   <div class="cloud-wall cloud-wall-left">
-    <img class="cloud-img ci-1" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-2" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-7" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-3" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-9" data-cloud alt="" draggable="false">
+    <img class="cloud-img ci-1" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-2" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-7" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-3" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-9" data-cloud alt="" draggable="false" width="1200" height="532">
   </div>
   <div class="cloud-wall cloud-wall-right">
-    <img class="cloud-img ci-4" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-5" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-8" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-6" data-cloud alt="" draggable="false">
-    <img class="cloud-img ci-10" data-cloud alt="" draggable="false">
+    <img class="cloud-img ci-4" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-5" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-8" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-6" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-10" data-cloud alt="" draggable="false" width="1200" height="532">
   </div>
 </div>"""
 
@@ -330,10 +330,9 @@ SCRIPT = """<script>
   function updateBanner() {
     const b = siteBanner();
     if (!b) { ticking = false; return; }
-    const rect = b.getBoundingClientRect();
     const cx = Math.min(Math.max(window.innerWidth / 2, 1), window.innerWidth - 1);
     let bright = null;
-    const ys = [rect.bottom + 6, rect.bottom + 24, rect.bottom + 48];
+    const ys = [50, 68, 92];
     const samples = [];
     for (const y of ys) {
       const stack = document.elementsFromPoint(cx, y) || [];
@@ -553,7 +552,7 @@ SCRIPT = """<script>
   function coverOff() { cloud.classList.remove('active'); overlay.classList.remove('active'); }
    function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
    let _cloudP = null, _cloudSrcNow = '';
-   function cloudSrc() { return (window.innerWidth / Math.max(1, window.innerHeight)) < 1.1 ? '/en/cloud-low.webp' : '/en/cloud-main.png'; }
+   function cloudSrc() { return (window.innerWidth / Math.max(1, window.innerHeight)) < 1.1 ? '/en/cloud-low.webp' : '/en/cloud-main.webp'; }
    function cloudReady() {
      const want = cloudSrc();
      let dirty = (_cloudSrcNow !== want);
@@ -639,7 +638,7 @@ SCRIPT = """<script>
 
 
 def make_page(title, label, desc, is_home=False, active="", slug="index.html"):
-    icon = '<link rel="icon" type="image/png" href="/en/aurion-favicon.png">'
+    icon = '<link rel="icon" type="image/png" href="/en/favicon-180.png">'
     mdesc = desc if desc else META_DESC
     ftitle = title if is_home else f"{title} - Aurion"
     meta = f"""<meta name="description" content="{mdesc}">
@@ -655,7 +654,7 @@ def make_page(title, label, desc, is_home=False, active="", slug="index.html"):
   <meta name="twitter:description" content="{mdesc}">
   <meta name="theme-color" content="#0A0A0A">
   <meta name="color-scheme" content="dark">
-  <link rel="apple-touch-icon" href="/en/aurion-favicon.png">"""
+  <link rel="apple-touch-icon" href="/en/favicon-180.png">"""
     head = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -664,10 +663,9 @@ def make_page(title, label, desc, is_home=False, active="", slug="index.html"):
   <title>{ftitle}</title>
   {icon}
   {meta}
-  <script>window.__cloudSrc=(window.innerWidth/Math.max(1,window.innerHeight))<1.1?'/en/cloud-low.webp':'/en/cloud-main.png';window._ci=new Image();window._ci.src=window.__cloudSrc;</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>window.__cloudSrc=(window.innerWidth/Math.max(1,window.innerHeight))<1.1?'/en/cloud-low.webp':'/en/cloud-main.webp';window._ci=new Image();window._ci.src=window.__cloudSrc;</script>
+  <link rel="preload" href="/en/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>@font-face{{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/en/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}}@font-face{{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/en/fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}}</style>
   <style>
 {STYLE}
   </style>
@@ -893,7 +891,7 @@ banner.classList.toggle('dark', brightness &lt; 128);</pre>
 {SCRIPT}
 </body>
 </html>"""
-    return head + content + foot
+    return head + '<main id="main">' + content + '</main>' + foot
 
 
 BASE = "/root/aurion-website/en"
@@ -924,7 +922,7 @@ not_found = """<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Aurion</title>
-  <link rel="icon" type="image/png" href="/en/aurion-favicon.png">
+  <link rel="icon" type="image/png" href="/en/favicon-180.png">
   <meta name="description" content="Page not found — Aurion.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aurion">
@@ -936,11 +934,10 @@ not_found = """<!DOCTYPE html>
   <meta name="twitter:site" content="@aurionzen">
   <meta name="theme-color" content="#0A0A0A">
   <meta name="color-scheme" content="dark">
-  <link rel="apple-touch-icon" href="/en/aurion-favicon.png">
-  <script>window.__cloudSrc=(window.innerWidth/Math.max(1,window.innerHeight))<1.1?'/en/cloud-low.webp':'/en/cloud-main.png';window._ci=new Image();window._ci.src=window.__cloudSrc;</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/en/favicon-180.png">
+  <script>window.__cloudSrc=(window.innerWidth/Math.max(1,window.innerHeight))<1.1?'/en/cloud-low.webp':'/en/cloud-main.webp';window._ci=new Image();window._ci.src=window.__cloudSrc;</script>
+  <link rel="preload" href="/en/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>@font-face{{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/en/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}}@font-face{{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/en/fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}}</style>
   <style>
 """ + STYLE + """
   </style>
@@ -948,11 +945,12 @@ not_found = """<!DOCTYPE html>
 </head>
 <body>
 """ + PAGELOAD + '<div id="site">' + make_banner() + """
-  <div class="not-found reveal">
+  <main id="main"><div class="not-found reveal">
     <h1>404</h1>
     <p>This page does not exist.</p>
     <a href="/en/">Go back home</a>
   </div>
+</main>
 """ + FOOTER + '</div>' + OVERLAYS + SCRIPT + """
 </body>
 </html>"""
