@@ -38,7 +38,7 @@
       ]
     },
     {
-      "source": "/en/logo-128.png",
+      "source": "/en/logo-128.webp",
       "headers": [
         {
           "key": "Cache-Control",

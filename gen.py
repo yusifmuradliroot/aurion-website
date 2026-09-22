@@ -180,7 +180,7 @@ def make_banner(active=""):
     logo_cls = ' class="active"' if active == 'home' else ''
     return f"""<div class="top-banner dark" id="banner">
     <a class="banner-logo" href="/en/">
-      <img src="/en/logo-128.png" alt="Aurion" width="128" height="128" fetchpriority="high" decoding="async">
+      <img src="/en/logo-128.webp" alt="Aurion" width="128" height="128" fetchpriority="high" decoding="async">
       <span{logo_cls}>Aurion</span>
     </a>
     <div class="banner-nav">
@@ -357,7 +357,7 @@ SCRIPT = """<script>
     const hc = document.querySelector('.home-center');
     if (hc && !hc.dataset.crtInit) { hc.dataset.crtInit = '1'; setTimeout(() => hc.classList.add('crt-active'), 1400); }
   }
-  function initPage() { updateBanner(); initHome(); initHomeEditable(); updateTiming(); scatterClouds(); initFooterReveal(); initMobileMenu(); initReveal(); initSpot(); initNavInd(); }
+  function initPage(skipBanner) { if (!skipBanner) updateBanner(); initHome(); initHomeEditable(); updateTiming(); scatterClouds(); initFooterReveal(); initMobileMenu(); initReveal(); initSpot(); initNavInd(); }
   function navLinks() { const n = document.querySelector('.banner-nav'); return n ? Array.from(n.querySelectorAll('a:not(.banner-ig)')) : []; }
   function moveNavInd(link) {
     const ind = document.getElementById('navInd');
@@ -595,7 +595,7 @@ SCRIPT = """<script>
       clearTimeout(_rzT);
       _rzT = setTimeout(() => {}, 250);
     });
-   window.addEventListener('load', () => { cloudReady().then(() => setTimeout(clearPageLoad, 700)); initPage(); });
+   window.addEventListener('load', () => { cloudReady().then(() => setTimeout(clearPageLoad, 700)); initPage(true); });
    cloudReady().then(() => setTimeout(clearPageLoad, 2500));
    setTimeout(clearPageLoad, 5000);
    // Lock cloud variant for the session — no aspect-based swap after first paint
@@ -678,98 +678,6 @@ def make_page(title, label, desc, is_home=False, active="", slug="index.html"):
 
     if is_home:
         content = """"""
-    elif title == "Forge":
-        content = """
-  <div class="project-hero reveal">
-    <h1>Forge</h1>
-    <p class="version">v2.12.0 — FS:2 Segmented Format</p>
-    <p class="sub">JS protection layer. Raw JavaScript in, encrypted <code>.fs</code> data file out, executed by the ForgeScript runner. Minimal by design, no dependencies, no build step.</p>
-    <div class="cta-row">
-      <a class="cta-btn primary" href="https://github.com/yusifmuradliroot/forge" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        View on GitHub
-      </a>
-    </div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>What it does</h2>
-    <p>Forge takes plain JavaScript source code and runs it through a configurable pipeline of transformation passes. The output is a compact <code>.fs</code> binary file that can only be executed by the ForgeScript runner — making the original logic difficult to read or reverse-engineer.</p>
-    <p>It's not a minifier. It's not a bundler. It's a protection layer: the compiled output is opaque data, not readable code.</p>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Trust model</h2>
-    <div class="warning-box">
-      <p>The <code>.fs</code> signature proves the file was not <em>accidentally</em> damaged. It proves nothing about who made it — the format, keys, and hash are public, so anyone can mint a fully-valid <code>.fs</code> for any content. Real protection = private raw + TLS + pinned URLs. Never rely on the signature for authenticity.</p>
-    </div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Pipeline</h2>
-    <p>Each pass transforms the code in sequence. <code>pack</code> is always forced last.</p>
-    <div class="pipeline">in.js → nolog → strip → short → num → flow → simp → uni → crypt → pack → out.fs</div>
-    <ul>
-      <li><strong>nolog</strong> — strips <code>console.*</code> statements</li>
-      <li><strong>strip</strong> — removes dead code and whitespace noise</li>
-      <li><strong>short</strong> — shortens variable and function names</li>
-      <li><strong>num</strong> — encodes numeric literals into opaque representations</li>
-      <li><strong>flow</strong> — flattens control flow to obscure execution order</li>
-      <li><strong>simp</strong> — applies algebraic simplifications</li>
-      <li><strong>uni</strong> — handles Unicode edge cases and encodings</li>
-      <li><strong>crypt</strong> — encrypts live <code>${}</code> template strings</li>
-      <li><strong>pack</strong> — compresses and finalizes the <code>.fs</code> binary</li>
-    </ul>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Install</h2>
-    <p>Needs Python 3.8+ to build, Node (any live version) to verify and run. No dependencies, no build step.</p>
-    <div class="code-block"><pre><code>git clone https://github.com/yusifmuradliroot/forge.git
-cd forge
-chmod +x forge          # once
-./forge examples/hello.js hello.fs</code></pre></div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Usage</h2>
-    <div class="code-block"><pre><code>./forge in.js out.fs                          # full chain
-./forge in.js out.js --dev                    # dev mode: readable, no pack
-./forge host.js out.js --passes nolog,strip,short,crypt --embed runner.js --host
-./forge in.js out.fs --audit                  # report risks, build on approval
-python3 tools/check.py                        # integrity checker
-node tests/check_runner.js                    # runner battery</code></pre></div>
-    <h3>Running a .fs file</h3>
-    <div class="code-block"><pre><code>eval(require('fs').readFileSync('src/runner/forgescript.js','utf8'));
-ForgeScript.run(require('fs').readFileSync('out.fs','utf8'));</code></pre></div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Project layout</h2>
-    <div class="layout-grid">
-      <span class="dir">src/</span><span class="desc">Core — scanner, passes, runner</span>
-      <span class="dir">src/passes/</span><span class="desc">Individual transformation passes</span>
-      <span class="dir">src/runner/</span><span class="desc">ForgeScript.js — the runtime executor</span>
-      <span class="dir">tools/</span><span class="desc">CLI translator and integrity checker</span>
-      <span class="dir">tests/</span><span class="desc">Fixtures and full self-test battery</span>
-      <span class="dir">docs/</span><span class="desc">Install, quickstart, usage, FAQ, format spec</span>
-      <span class="dir">examples/</span><span class="desc">Minimal buildable examples</span>
-    </div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Requirements</h2>
-    <ul>
-      <li>Python 3.8+ (to run the compiler)</li>
-      <li>Node.js (any version, to execute <code>.fs</code> files)</li>
-      <li>Zero external dependencies</li>
-    </ul>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>License</h2>
-    <p>Custom — attribution + takedown. See <code>LICENSE</code> in the repository for full terms.</p>
-  </div>"""
     elif title == "AnimTest":
         content = """
   <div class="page" style="max-width:720px">
@@ -901,7 +809,6 @@ pages = {
     "about.html": make_page("About", "About", "Aurion holds independent studios under one layer and keeps them sharp. Every field. One standard: evidence over opinion.", active="about", slug="about.html"),
     "studios.html": make_page("Studios", "Studios", "", active="studios", slug="studios.html"),
     "animtest.html": make_page("AnimTest", "AnimTest", "", active="", slug="animtest.html"),
-    "projects/forge.html": make_page("Forge", "Forge", "", active="studios", slug="projects/forge.html"),
     "contact.html": make_page("Contact", "Contact", "You don't find us — we find you. Don't take it personally. We're not saying no — we're saying not yet. We believe in you more than you know. And when the time comes, we'll have found you. For now, just carry the fire.", active="contact", slug="contact.html"),
     "easter.html": make_page("Easter", "Easter", "", active="", slug="easter.html"),
 }
@@ -970,7 +877,7 @@ with open(os.path.join(ROOT_DIR, "robots.txt"), "w") as f:
     f.write("User-agent: *\nAllow: /\nSitemap: " + SITE_URL + "/sitemap.xml\n")
 print("Created robots.txt")
 with open(os.path.join(ROOT_DIR, "sitemap.xml"), "w") as f:
-    urls = ["en/", "en/about", "en/studios", "en/projects/forge", "en/contact"]
+    urls = ["en/", "en/about", "en/studios", "en/contact"]
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
         f.write(f"  <url><loc>{SITE_URL}/{u}</loc></url>\n")

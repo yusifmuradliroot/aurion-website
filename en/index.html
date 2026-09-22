@@ -212,7 +212,7 @@ footer.visible{transform:translateY(0)}
 <div id="site">
 <div class="top-banner dark" id="banner">
     <a class="banner-logo" href="/en/">
-      <img src="/en/logo-128.png" alt="Aurion" width="128" height="128" fetchpriority="high" decoding="async">
+      <img src="/en/logo-128.webp" alt="Aurion" width="128" height="128" fetchpriority="high" decoding="async">
       <span class="active">Aurion</span>
     </a>
     <div class="banner-nav">
@@ -366,7 +366,7 @@ footer.visible{transform:translateY(0)}
     const hc = document.querySelector('.home-center');
     if (hc && !hc.dataset.crtInit) { hc.dataset.crtInit = '1'; setTimeout(() => hc.classList.add('crt-active'), 1400); }
   }
-  function initPage() { updateBanner(); initHome(); initHomeEditable(); updateTiming(); scatterClouds(); initFooterReveal(); initMobileMenu(); initReveal(); initSpot(); initNavInd(); }
+  function initPage(skipBanner) { if (!skipBanner) updateBanner(); initHome(); initHomeEditable(); updateTiming(); scatterClouds(); initFooterReveal(); initMobileMenu(); initReveal(); initSpot(); initNavInd(); }
   function navLinks() { const n = document.querySelector('.banner-nav'); return n ? Array.from(n.querySelectorAll('a:not(.banner-ig)')) : []; }
   function moveNavInd(link) {
     const ind = document.getElementById('navInd');
@@ -604,7 +604,7 @@ footer.visible{transform:translateY(0)}
       clearTimeout(_rzT);
       _rzT = setTimeout(() => {}, 250);
     });
-   window.addEventListener('load', () => { cloudReady().then(() => setTimeout(clearPageLoad, 700)); initPage(); });
+   window.addEventListener('load', () => { cloudReady().then(() => setTimeout(clearPageLoad, 700)); initPage(true); });
    cloudReady().then(() => setTimeout(clearPageLoad, 2500));
    setTimeout(clearPageLoad, 5000);
    // Lock cloud variant for the session — no aspect-based swap after first paint
