@@ -18,7 +18,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         path = self.path.split('?')[0].strip('/')
         if path == '':
             self.send_response(302)
-            self.send_header('Location', '/en/')
+            self.send_header('Location', '/en')
             self.end_headers()
             return
         if path == 'en':

@@ -179,7 +179,7 @@ def make_banner(active=""):
     mobile_links = "\n".join([mobile_nav_a('about','About'), mobile_nav_a('studios','Studios'), mobile_nav_a('contact','Contact')])
     logo_cls = ' class="active"' if active == 'home' else ''
     return f"""<div class="top-banner dark" id="banner">
-    <a class="banner-logo" href="/en/">
+    <a class="banner-logo" href="/en">
       <img src="/en/logo-128.webp" alt="Aurion" width="128" height="128" fetchpriority="high" decoding="async">
       <span{logo_cls}>Aurion</span>
     </a>
@@ -855,7 +855,7 @@ not_found = """<!DOCTYPE html>
   <main id="main"><div class="not-found reveal">
     <h1>404</h1>
     <p>This page does not exist.</p>
-    <a href="/en/">Go back home</a>
+    <a href="/en">Go back home</a>
   </div>
 </main>
 """ + FOOTER + '</div>' + OVERLAYS + SCRIPT + """
