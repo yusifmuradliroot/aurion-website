@@ -21,6 +21,8 @@
   <link rel="apple-touch-icon" href="/en/favicon-180.png">
   <script>window.__cloudSrc=(window.innerWidth/Math.max(1,window.innerHeight))<1.1?'/en/cloud-low.webp':'/en/cloud-main.webp';window._ci=new Image();window._ci.src=window.__cloudSrc;</script>
   <link rel="preload" href="/en/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" media="(max-aspect-ratio: 11/10)" href="/en/cloud-low.webp" fetchpriority="high">
+  <link rel="preload" as="image" media="(min-aspect-ratio: 11/10)" href="/en/cloud-main.webp" fetchpriority="high">
   <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/en/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(/en/fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}</style>
   <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -195,18 +197,18 @@ footer.visible{transform:translateY(0)}
 <body>
 <div class="page-load-overlay" id="pageLoad">
   <div class="cloud-wall cloud-wall-left">
-    <img class="cloud-img ci-1" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-2" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-7" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-3" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-9" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-1" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-2" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-7" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-3" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-9" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
   </div>
   <div class="cloud-wall cloud-wall-right">
-    <img class="cloud-img ci-4" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-5" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-8" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-6" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-10" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-4" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-5" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-8" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-6" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-10" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
   </div>
 </div>
 <div id="site">
@@ -256,18 +258,18 @@ footer.visible{transform:translateY(0)}
 <div class="transition-overlay" id="transOverlay"></div>
 <div class="transition-cloud" id="transCloud">
   <div class="cloud-wall cloud-wall-left">
-    <img class="cloud-img ci-1" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-2" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-7" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-3" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-9" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-1" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-2" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-7" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-3" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-9" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
   </div>
   <div class="cloud-wall cloud-wall-right">
-    <img class="cloud-img ci-4" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-5" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-8" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-6" data-cloud alt="" draggable="false" width="1200" height="532">
-    <img class="cloud-img ci-10" data-cloud alt="" draggable="false" width="1200" height="532">
+    <img class="cloud-img ci-4" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-5" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-8" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-6" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
+    <img class="cloud-img ci-10" data-cloud alt="" draggable="false" width="1200" height="532" fetchpriority="high">
   </div>
 </div>
 <script>
@@ -458,7 +460,9 @@ footer.visible{transform:translateY(0)}
     if (window._cloudScatter) return;
     window._cloudScatter = true;
     const rnd = (a, b) => a + Math.random() * (b - a);
+    const narrow = matchMedia('(max-aspect-ratio: 1/1)').matches;
     document.querySelectorAll('.cloud-img').forEach(img => {
+      if (!narrow && (img.classList.contains('ci-9') || img.classList.contains('ci-10'))) return;
       const cs = getComputedStyle(img);
       if (cs.display === 'none') return;
       img.style.transform = `translate(${rnd(-1.5, 1.5).toFixed(2)}%, ${rnd(-1, 1).toFixed(2)}%)`;
