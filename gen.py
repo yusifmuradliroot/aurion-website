@@ -7,30 +7,31 @@ html{background:#0A0A0A;scrollbar-width:none;-ms-overflow-style:none;scroll-beha
 a,button{-webkit-tap-highlight-color:transparent}
 a:focus-visible,button:focus-visible{outline:2px solid rgba(255,255,255,.7);outline-offset:3px;border-radius:6px}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#0A0A0A;color:#ededed;min-height:100vh;-webkit-font-smoothing:antialiased}
-.top-banner{position:fixed;top:0;left:0;right:0;height:44px;background:linear-gradient(180deg,rgba(32,32,34,.72),rgba(0,0,0,.6));-webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 32px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:1000;transition:all .4s}
+.top-banner{position:fixed;top:0;left:0;right:0;height:44px;background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(28px) saturate(1.8);backdrop-filter:blur(28px) saturate(1.8);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 8px 32px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:1000;transition:background .4s,border-color .4s,box-shadow .4s}
 .top-banner>*{display:flex;align-items:center;height:100%}
-.banner-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.banner-logo img{height:28px;width:auto;flex-shrink:0;display:block;filter:invert(1)}
+.banner-logo{display:flex;align-items:center;gap:6px;text-decoration:none}
+.banner-logo img{height:28px;width:auto;flex-shrink:0;display:block;filter:invert(1);transition:filter .4s}
 .banner-logo span{font-size:14px;font-weight:700;letter-spacing:-.02em;color:#fff;transition:color .4s;line-height:1}
 .banner-nav{display:flex;gap:24px;align-items:center;position:relative}
 .banner-nav a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s;font-weight:500;line-height:1;display:inline-flex;align-items:center;position:relative}
-.banner-nav a:not(.banner-ig){padding-bottom:8px}
+.banner-nav a:not(.banner-ig)::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:8px}
 .nav-ind{position:absolute;height:2px;border-radius:2px;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.55);opacity:0;transition:left .38s cubic-bezier(.25,.6,.35,1),width .38s cubic-bezier(.25,.6,.35,1),opacity .25s;pointer-events:none}
 .banner-nav a:hover{color:#fff}
 .banner-nav a.active{color:#fff;font-weight:600}
 .banner-logo span.active{color:#fff;font-weight:800}
-.banner-ig{display:inline-flex;align-items:center;align-self:center;gap:6px;padding:6px 14px;border-radius:980px;background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%) padding-box,linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06)) padding-box,linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,.05)) border-box;-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);color:#fff;text-decoration:none;font-size:12px;font-weight:500;transition:all .3s;border:1px solid transparent;box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(255,255,255,.18),inset 1px 0 1px rgba(255,255,255,.12),inset -1px 0 1px rgba(255,255,255,.12),0 4px 16px rgba(0,0,0,.3);line-height:1;position:relative;overflow:hidden}
+.hamburger span{background:#fff}
+.banner-ig{display:inline-flex;align-items:center;align-self:center;gap:6px;padding:6px 14px;border-radius:980px;background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(36px) saturate(1.6);backdrop-filter:blur(36px) saturate(1.6);color:#fff;text-decoration:none;font-size:12px;font-weight:500;transition:color .3s,background .3s,border-color .3s,box-shadow .3s;border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 4px 16px rgba(0,0,0,.2);line-height:1;position:relative;overflow:hidden}
 .banner-ig:active{transform:scale(.96)}
-.banner-ig::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.18) 0%,rgba(255,255,255,.07) 45%,transparent 70%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");background-size:auto,120px 120px;opacity:0;transition:opacity .35s;pointer-events:none}
+.banner-ig::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.16) 0%,rgba(255,255,255,.06) 45%,transparent 70%);opacity:0;transition:opacity .35s,background .35s;pointer-events:none}
 .banner-ig:hover::before{opacity:1}
-.banner-ig:hover{background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%) padding-box,linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.12)) padding-box,linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,.08)) border-box;box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(255,255,255,.18),inset 1px 0 1px rgba(255,255,255,.12),inset -1px 0 1px rgba(255,255,255,.12),0 6px 20px rgba(0,0,0,.4)}
+.banner-ig:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 6px 20px rgba(0,0,0,.28)}
 .banner-ig svg{width:14px;height:14px;flex-shrink:0;display:block;position:relative;z-index:1}
 .banner-ig span{position:relative;z-index:1}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1002}
 .hamburger span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(-5px,5px)}
 .mobile-menu{position:fixed;top:0;right:0;width:220px;height:100vh;background:rgba(18,18,20,.96);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);z-index:1001;transform:translateX(100%);transition:transform .3s cubic-bezier(0.25,0.6,0.35,1);padding:0;display:flex;flex-direction:column;align-items:stretch;border-left:1px solid rgba(255,255,255,.08);box-shadow:-4px 0 20px rgba(0,0,0,.4)}
 .mobile-menu.open{transform:translateX(0)}
 .mobile-menu a{font-size:15px;font-weight:600;color:#fff;text-decoration:none;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.07);transition:background .2s}
@@ -38,14 +39,21 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .mobile-menu a.active{font-weight:700;color:#fff}
 .mobile-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.3);z-index:999;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
 .mobile-overlay.open{opacity:1;visibility:visible;transition:opacity .3s,visibility 0s}
-.top-banner.dark{background:linear-gradient(180deg,rgba(32,32,34,.72),rgba(0,0,0,.6));border-bottom:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 32px rgba(0,0,0,.35)}
-.top-banner.dark .banner-logo span{color:#fff}
-.top-banner.dark .banner-nav a{color:rgba(255,255,255,.5)}
-.top-banner.dark .banner-nav a:hover{color:#fff}
-.top-banner.dark .banner-nav a.active{color:#fff}
-.top-banner.dark .banner-logo span.active{color:#fff}
-.top-banner.dark .banner-ig{background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%) padding-box,linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06)) padding-box,linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,.05)) border-box;color:#fff;border-color:transparent;box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(255,255,255,.18),inset 1px 0 1px rgba(255,255,255,.12),inset -1px 0 1px rgba(255,255,255,.12),0 4px 16px rgba(0,0,0,.3)}
-@media (prefers-reduced-transparency:reduce){.top-banner,.banner-ig{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(10,10,10,.96);box-shadow:none}.top-banner.dark{background:rgba(0,0,0,.96)}.top-banner.dark .banner-ig{background:rgba(45,45,47,.98);box-shadow:none}}
+.top-banner.dark{background:rgba(0,0,0,.2);border-bottom-color:rgba(255,255,255,.1);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.top-banner.light{background:rgba(255,255,255,.45);border-bottom-color:rgba(0,0,0,.1);box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.top-banner.light .banner-logo span{color:#111}
+.top-banner.light .banner-logo img{filter:none}
+.top-banner.light .banner-nav a{color:rgba(0,0,0,.55)}
+.top-banner.light .banner-nav a:hover{color:#111}
+.top-banner.light .banner-nav a.active{color:#111}
+.top-banner.light .banner-logo span.active{color:#111}
+.top-banner.light .nav-ind{background:#111;box-shadow:0 0 8px rgba(0,0,0,.35)}
+.top-banner.light .hamburger span{background:#111}
+.top-banner.light .banner-ig{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.22);color:#111;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 4px 16px rgba(0,0,0,.08)}
+.top-banner.light .banner-ig:hover{background:rgba(0,0,0,.12);border-color:rgba(0,0,0,.35);color:#111;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 6px 20px rgba(0,0,0,.14)}
+.top-banner.light .banner-ig::before,
+.top-banner.light .banner-ig:hover::before{background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(0,0,0,.22) 0%,rgba(0,0,0,.1) 45%,transparent 70%)}
+@media (prefers-reduced-transparency:reduce){.top-banner{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(10,10,10,.96);box-shadow:none}.top-banner.light{background:rgba(240,240,242,.96)}.top-banner .banner-ig,.top-banner.light .banner-ig{-webkit-backdrop-filter:none;backdrop-filter:none}.top-banner .banner-ig{background:rgba(45,45,47,.98);box-shadow:none}.top-banner.light .banner-ig{background:rgba(255,255,255,.92);box-shadow:none}}
 @media (max-width:768px){.banner-nav,.banner-ig{display:none!important}.hamburger{display:flex;margin-left:auto;align-self:center}.top-banner{padding:0 16px}footer{display:none!important}.page{padding:96px 20px 20px}.project-hero{padding:96px 20px 32px}.project-section{padding:0 20px 40px}.hero-cta{width:100%;justify-content:center;max-width:320px}}
 #site{display:flex;flex-direction:column;min-height:100vh}
 .page{max-width:980px;margin:0 auto;padding:120px 24px 20px;flex:1;width:100%;min-height:100vh}
@@ -84,7 +92,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .cta-btn.primary{background:#fff;color:#000;border-color:#fff}
 .cta-btn.primary:hover{background:#ddd;border-color:#ddd}
 .cta-btn:active{transform:scale(.97)}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.resize-fx{display:none!important}}
 .warning-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 20px;margin:12px 0}
 .warning-box p{margin:0;font-size:13px;color:#aaa;line-height:1.6}
 footer{position:fixed;bottom:0;left:0;right:0;border-top:1px solid rgba(255,255,255,.08);padding:8px 24px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:999;transform:translateY(100%);transition:transform .35s cubic-bezier(0.25,0.6,0.35,1)}
@@ -121,6 +129,18 @@ footer.visible{transform:translateY(0)}
 .crt-active .home-text{animation:crtFlicker 3s infinite;color:#000}
 @keyframes blink{50%{opacity:0}}
 .transition-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0);z-index:9999;pointer-events:none;transition:background var(--fadeDur,.9s) ease}
+.resize-fx{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:0;mix-blend-mode:screen;filter:blur(36px);
+  background-image:
+    radial-gradient(circle 1920px at 0 0,rgba(255,250,244,.32),rgba(255,235,210,.14) 42%,transparent 72%),
+    radial-gradient(ellipse 55% 50% at 16% 20%,rgba(255,248,240,.16),transparent 65%),
+    radial-gradient(ellipse 42% 38% at 2% 30%,rgba(255,240,228,.12),transparent 70%);
+  background-size:1600px 1600px;
+  background-position:0 0;
+  background-repeat:no-repeat;
+  transform:scale(1.03);
+  transition:opacity .75s cubic-bezier(.4,0,.6,1),transform .75s cubic-bezier(.4,0,.6,1),filter .75s cubic-bezier(.4,0,.6,1);
+  will-change:opacity,transform,filter}
+.resize-fx.on{opacity:1;transform:scale(1);filter:blur(26px);transition:opacity .36s cubic-bezier(.25,.46,.45,.94),transform .36s cubic-bezier(.25,.46,.45,.94),filter .36s cubic-bezier(.25,.46,.45,.94)}
 .transition-overlay.active{background:rgba(10,10,10,1);pointer-events:all}
 .transition-cloud{position:fixed;top:0;left:0;right:0;bottom:0;z-index:10000;pointer-events:none;opacity:0;visibility:hidden;transition:opacity var(--fadeDur,.9s) ease,visibility 0s 1s;overflow:hidden;background:#0A0A0A}
 .transition-cloud.active{opacity:1;visibility:visible;pointer-events:all;transition:opacity var(--fadeDur,.9s) ease .12s}
@@ -128,7 +148,7 @@ footer.visible{transform:translateY(0)}
 .cloud-wall-left{left:-10%;transform:translateX(-190%)}
 .cloud-wall-right{right:-10%;transform:translateX(190%)}
 .transition-cloud.active .cloud-wall-left,.transition-cloud.active .cloud-wall-right{transform:translateX(0);transition-timing-function:cubic-bezier(0.25,0.6,0.35,1);transition-duration:var(--slideDur,1.2s)}
-.cloud-img{position:absolute;display:block;height:auto;user-select:none;-webkit-user-drag:none;filter:contrast(.9) brightness(1.04)}
+.cloud-img{position:absolute;display:block;height:auto;max-width:none;user-select:none;-webkit-user-drag:none;filter:contrast(.9) brightness(1.04)}
 .transition-cloud .cloud-img,.page-load-overlay .cloud-img{visibility:hidden}
 .transition-cloud.ready .cloud-img,.page-load-overlay.ready .cloud-img{visibility:visible}
 .ci-1{width:225%;top:-25%;left:-30%}
@@ -155,10 +175,10 @@ def make_banner(active=""):
     def mobile_nav_a(href, text):
         cls = ' class="active"' if text.lower() == active else ''
         return f'    <a href="/en/{href}"{cls}>{text}</a>'
-    links = "\n".join([nav_a('about','About'), nav_a('projects','Projects'), nav_a('next','Next'), nav_a('contact','Contact')])
-    mobile_links = "\n".join([mobile_nav_a('about','About'), mobile_nav_a('projects','Projects'), mobile_nav_a('next','Next'), mobile_nav_a('contact','Contact')])
+    links = "\n".join([nav_a('about','About'), nav_a('studios','Studios'), nav_a('contact','Contact')])
+    mobile_links = "\n".join([mobile_nav_a('about','About'), mobile_nav_a('studios','Studios'), mobile_nav_a('contact','Contact')])
     logo_cls = ' class="active"' if active == 'home' else ''
-    return f"""<div class="top-banner" id="banner">
+    return f"""<div class="top-banner dark" id="banner">
     <a class="banner-logo" href="/en/">
       <img src="/en/logo-transparent.png" alt="Aurion">
       <span{logo_cls}>Aurion</span>
@@ -199,7 +219,8 @@ PAGELOAD = """<div class="page-load-overlay" id="pageLoad">
 </div>"""
 
 
-OVERLAYS = """<div class="transition-overlay" id="transOverlay"></div>
+OVERLAYS = """<div class="resize-fx" id="resizeFx"></div>
+<div class="transition-overlay" id="transOverlay"></div>
 <div class="transition-cloud" id="transCloud">
   <div class="cloud-wall cloud-wall-left">
     <img class="cloud-img ci-1" data-cloud alt="" draggable="false">
@@ -230,8 +251,7 @@ FOOTER = f"""<footer>
       <div class="footer-version">v:{SITE_VERSION}</div>
       <div class="footer-links">
         <a href="/en/about">About</a>
-        <a href="/en/projects">Projects</a>
-        <a href="/en/next">Next</a>
+        <a href="/en/studios">Studios</a>
         <a href="/en/contact">Contact</a>
       </div>
     </div>
@@ -241,20 +261,97 @@ FOOTER = f"""<footer>
 SCRIPT = """<script>
   function siteBanner() { return document.getElementById('banner'); }
   let ticking = false;
+  function parseRGB(str) {
+    if (!str) return null;
+    const m = str.match(/rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*(?:,\s*([\d.]+))?\s*\)/);
+    if (!m) {
+      const h = str.trim().match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+      if (h) {
+        let x = h[1];
+        if (x.length === 3) x = x[0]+x[0]+x[1]+x[1]+x[2]+x[2];
+        return { r: parseInt(x.slice(0,2),16), g: parseInt(x.slice(2,4),16), b: parseInt(x.slice(4,6),16), a: 1 };
+      }
+      return null;
+    }
+    return { r: +m[1], g: +m[2], b: +m[3], a: m[4] === undefined ? 1 : +m[4] };
+  }
+  function lum(c) { return (c.r * 299 + c.g * 587 + c.b * 114) / 1000; }
+  function gradientSample(bgImage) {
+    if (!bgImage || bgImage === 'none') return null;
+    const re = /rgba?\([^)]+\)|#[0-9a-f]{3,8}/gi;
+    const hits = bgImage.match(re);
+    if (!hits || !hits.length) return null;
+    return parseRGB(hits[0]);
+  }
   function getBrightness(el) {
-    if (!el || el === document.body || el === document.documentElement) return 255;
-    const bg = getComputedStyle(el).backgroundColor;
-    if (!bg || bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent') return getBrightness(el.parentElement);
-    const m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-    if (!m) return getBrightness(el.parentElement);
-    return (parseInt(m[1]) * 299 + parseInt(m[2]) * 587 + parseInt(m[3]) * 114) / 1000;
+    let node = el;
+    let acc = null;
+    let accA = 0;
+    let depth = 0;
+    while (node && node.nodeType === 1 && depth < 40) {
+      depth++;
+      const cs = getComputedStyle(node);
+      let col = parseRGB(cs.backgroundColor);
+      if (!col || col.a === 0) col = gradientSample(cs.backgroundImage);
+      if (col && col.a > 0) {
+        const a = col.a;
+        const merged = acc === null
+          ? { r: col.r, g: col.g, b: col.b }
+          : {
+              r: Math.round(col.r * a + acc.r * (1 - a)),
+              g: Math.round(col.g * a + acc.g * (1 - a)),
+              b: Math.round(col.b * a + acc.b * (1 - a))
+            };
+        accA = accA + a * (1 - accA);
+        acc = merged;
+        if (accA >= 0.98) break;
+        if (a >= 0.98) break;
+      }
+      if (node === document.body || node === document.documentElement) break;
+      node = node.parentElement;
+    }
+    if (!acc) {
+      const rootBg = parseRGB(getComputedStyle(document.documentElement).backgroundColor)
+        || parseRGB(getComputedStyle(document.body).backgroundColor)
+        || { r: 10, g: 10, b: 10 };
+      return lum(rootBg);
+    }
+    if (accA < 0.98) {
+      const under = { r: 10, g: 10, b: 10 };
+      const rest = 1 - accA;
+      acc = {
+        r: Math.round(acc.r * accA + under.r * rest),
+        g: Math.round(acc.g * accA + under.g * rest),
+        b: Math.round(acc.b * accA + under.b * rest)
+      };
+    }
+    return lum(acc);
   }
   function updateBanner() {
     const b = siteBanner();
     if (!b) { ticking = false; return; }
     const rect = b.getBoundingClientRect();
-    const target = document.elementFromPoint(window.innerWidth / 2, rect.bottom + 1);
-    b.classList.toggle('dark', getBrightness(target) < 128);
+    const cx = Math.min(Math.max(window.innerWidth / 2, 1), window.innerWidth - 1);
+    let bright = null;
+    const ys = [rect.bottom + 6, rect.bottom + 24, rect.bottom + 48];
+    const samples = [];
+    for (const y of ys) {
+      const stack = document.elementsFromPoint(cx, y) || [];
+      for (const el of stack) {
+        if (!el || el === b || b.contains(el)) continue;
+        if (el.closest && (el.closest('#pageLoad') || el.closest('#transCloud') || el.closest('#transOverlay') || el.closest('.resize-fx') || el.closest('.mobile-menu') || el.closest('.mobile-overlay'))) continue;
+        samples.push(getBrightness(el));
+        break;
+      }
+    }
+    if (samples.length) {
+      samples.sort((a, b) => a - b);
+      bright = samples[Math.floor(samples.length / 2)];
+    } else {
+      bright = getBrightness(document.body);
+    }
+    b.classList.toggle('dark', bright < 128);
+    b.classList.toggle('light', bright >= 128);
     ticking = false;
   }
   function initHome() {
@@ -270,7 +367,7 @@ SCRIPT = """<script>
     ind.style.opacity = '1';
     ind.style.left = link.offsetLeft + 'px';
     ind.style.width = link.offsetWidth + 'px';
-    ind.style.top = (link.offsetTop + link.offsetHeight - 3) + 'px';
+    ind.style.top = (link.offsetTop + link.offsetHeight + 4) + 'px';
   }
   function initNavInd() {
     const nav = document.querySelector('.banner-nav');
@@ -353,16 +450,7 @@ SCRIPT = """<script>
     document.querySelectorAll('.cloud-img').forEach(img => {
       const cs = getComputedStyle(img);
       if (cs.display === 'none') return;
-      const wall = img.parentElement;
-      const ww = wall.clientWidth || 1, wh = wall.clientHeight || 1;
-      if (cs.bottom === 'auto') {
-        img.style.top = (parseFloat(cs.top) + rnd(-0.01, 0.01) * wh) + 'px';
-      }
-      if (cs.left !== 'auto') {
-        img.style.left = (parseFloat(cs.left) + rnd(-0.02, 0.02) * ww) + 'px';
-      } else if (cs.right !== 'auto') {
-        img.style.right = (parseFloat(cs.right) + rnd(-0.02, 0.02) * ww) + 'px';
-      }
+      img.style.transform = `translate(${rnd(-1.5, 1.5).toFixed(2)}%, ${rnd(-1, 1).toFixed(2)}%)`;
       img.style.opacity = rnd(0.88, 1).toFixed(3);
     });
   }
@@ -496,11 +584,23 @@ SCRIPT = """<script>
      });
      return _cloudP;
    }
-   let _rzT = null;
-   window.addEventListener('resize', () => { clearTimeout(_rzT); _rzT = setTimeout(() => { if (cloudSrc() !== _cloudSrcNow) cloudReady(); }, 250); });
+    let _rzT = null;
+    let _rzHide = null;
+    window.addEventListener('resize', () => {
+      const fx = document.getElementById('resizeFx');
+      if (fx) {
+        fx.classList.add('on');
+        clearTimeout(_rzHide);
+        _rzHide = setTimeout(() => { fx.classList.remove('on'); }, 600);
+      }
+      clearTimeout(_rzT);
+      _rzT = setTimeout(() => {}, 250);
+    });
    window.addEventListener('load', () => { cloudReady().then(() => setTimeout(clearPageLoad, 700)); initPage(); });
    cloudReady().then(() => setTimeout(clearPageLoad, 2500));
    setTimeout(clearPageLoad, 5000);
+   // Lock cloud variant for the session — no aspect-based swap after first paint
+   _cloudSrcNow = cloudSrc();
   initPage();
 
    async function pjaxGo(href, push) {
@@ -579,23 +679,7 @@ def make_page(title, label, desc, is_home=False, active="", slug="index.html"):
 {make_banner(active)}"""
 
     if is_home:
-        content = """
-  <div class="home-center">
-    <h1 class="hero-title">We build digital experiences that matter.</h1>
-    <p class="hero-tag editable-home hover-swap" data-default="Small team. Sharp tools. No noise." data-hover="Hey, don't click me :(" contenteditable="true">Small team. Sharp tools. No noise.<span class="home-cursor"></span></p>
-    <a class="cta-btn primary hero-cta" href="/en/projects">Explore Work</a>
-  </div>"""
-    elif title == "Projects":
-        content = """
-  <div class="page">
-    <h1 class="page-title reveal">Projects</h1>
-    <div class="projects-grid">
-      <a class="project-card reveal" href="/en/projects/forge">
-        <h3>Forge</h3>
-        <p>Mini compiler toolkit — general-purpose JS build/protect pipeline.</p>
-      </a>
-    </div>
-  </div>"""
+        content = """"""
     elif title == "Forge":
         content = """
   <div class="project-hero reveal">
@@ -688,19 +772,102 @@ ForgeScript.run(require('fs').readFileSync('out.fs','utf8'));</code></pre></div>
     <h2>License</h2>
     <p>Custom — attribution + takedown. See <code>LICENSE</code> in the repository for full terms.</p>
   </div>"""
-    elif title == "Next":
+    elif title == "AnimTest":
         content = """
-  <div class="page">
-    <h1 class="page-title reveal">Next</h1>
-    <div class="projects-grid">
-      <a class="project-card reveal" href="https://github.com/yusifmuradliroot/synapse" target="_blank" rel="noopener">
-        <h3>Synapse</h3>
-        <p>Upcoming project — in early development.</p>
-        <div class="project-tags">
-          <span class="project-tag">Coming Soon</span>
+  <div class="page" style="max-width:720px">
+    <h1 class="page-title reveal">AnimTest</h1>
+    <p class="page-desc reveal">Scroll to test banner light / dark switching.</p>
+
+    <section class="reveal" style="margin-top:48px;background:#0A0A0A;color:#eee;padding:48px 28px;border-radius:14px;border:1px solid rgba(255,255,255,.1)">
+      <h2 style="color:#fff;margin-bottom:12px">Pure Black</h2>
+      <p style="color:#bbb;line-height:1.7">Banner should go fully dark here. #0A0A0A background with light text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      <p style="color:#888;line-height:1.7;margin-top:12px">More body copy so there is something substantial under the fixed header while scrolling. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#f5f5f7;color:#111;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#111;margin-bottom:12px">Light Section</h2>
+      <p style="color:#333;line-height:1.7">Banner should flip to light glass. #f5f5f7 background with dark text. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+      <p style="color:#666;line-height:1.7;margin-top:12px">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#eee;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#e94560;margin-bottom:12px">Dark Gradient + Accent</h2>
+      <p style="color:#ccc;line-height:1.7">Deep navy gradient with red accent heading. Banner dark mode. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <span style="background:#e94560;color:#fff;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600">Accent</span>
+        <span style="background:#0f3460;color:#fff;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600">Blue</span>
+        <span style="background:rgba(255,255,255,.12);color:#fff;padding:6px 14px;border-radius:999px;font-size:12px">Ghost</span>
+      </div>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#fff;color:#111;padding:48px 28px;border-radius:14px;border:1px solid #e5e5e5">
+      <h2 style="color:#111;margin-bottom:12px">Pure White</h2>
+      <p style="color:#444;line-height:1.7">Hardest case for the light banner — pure #fff. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+      <p style="color:#777;line-height:1.7;margin-top:12px">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:linear-gradient(135deg,#ff9a9e,#fecfef);color:#5c1a1a;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#8b1e3f;margin-bottom:12px">Bright Pastel</h2>
+      <p style="color:#6b3040;line-height:1.7">Very light pink gradient — banner must go light. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#111;color:#eee;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#fff;margin-bottom:12px">Near Black #111</h2>
+      <p style="color:#aaa;line-height:1.7">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.</p>
+      <pre style="background:#1c1c1e;color:#7dce82;padding:16px;border-radius:10px;margin-top:16px;overflow-x:auto;font-size:13px;line-height:1.6">// code block under banner
+const banner = document.getElementById('banner');
+banner.classList.toggle('dark', brightness &lt; 128);</pre>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#e8f4fd;color:#0a2540;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#0a2540;margin-bottom:12px">Light Blue</h2>
+      <p style="color:#2d4a6b;line-height:1.7">Soft blue section. Tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur.</p>
+      <blockquote style="border-left:3px solid #0a2540;padding-left:16px;margin-top:16px;color:#3d5a80;font-style:italic">"The only way to do great work is to love what you do."</blockquote>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#0d1117;color:#c9d1d9;padding:48px 28px;border-radius:14px;border:1px solid #30363d">
+      <h2 style="color:#58a6ff;margin-bottom:12px">GitHub Dark</h2>
+      <p style="color:#8b949e;line-height:1.7">Classic dark UI palette. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+        <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px">
+          <div style="color:#58a6ff;font-weight:600;font-size:13px">Card A</div>
+          <div style="color:#8b949e;font-size:12px;margin-top:6px">Nested light text on darker card</div>
         </div>
-      </a>
-    </div>
+        <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px">
+          <div style="color:#3fb950;font-weight:600;font-size:13px">Card B</div>
+          <div style="color:#8b949e;font-size:12px;margin-top:6px">Green accent heading</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#fafafa;color:#222;padding:48px 28px;border-radius:14px;border:1px solid #eee">
+      <h2 style="color:#222;margin-bottom:12px">Near White #fafafa</h2>
+      <p style="color:#555;line-height:1.7">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+      <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:13px">
+        <tr style="background:#f0f0f0"><th style="text-align:left;padding:10px;border:1px solid #e0e0e0">Token</th><th style="text-align:left;padding:10px;border:1px solid #e0e0e0">Value</th></tr>
+        <tr><td style="padding:10px;border:1px solid #e0e0e0">bg</td><td style="padding:10px;border:1px solid #e0e0e0">#fafafa</td></tr>
+        <tr><td style="padding:10px;border:1px solid #e0e0e0">text</td><td style="padding:10px;border:1px solid #e0e0e0">#222</td></tr>
+      </table>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#000;color:#fff;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#fff;margin-bottom:12px">Absolute Black #000</h2>
+      <p style="color:#999;line-height:1.7">True black. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <p style="color:#666;line-height:1.7;margin-top:12px">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#fff;margin-bottom:12px">Purple Gradient</h2>
+      <p style="color:rgba(255,255,255,.85);line-height:1.7">Mid-tone gradient — tests the brightness threshold edge. But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.</p>
+    </section>
+
+    <section class="reveal" style="margin-top:32px;background:#fffde7;color:#333;padding:48px 28px;border-radius:14px">
+      <h2 style="color:#f57f17;margin-bottom:12px">Warm Light</h2>
+      <p style="color:#555;line-height:1.7">Pale yellow. The master-builder of human happiness and no one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
+    </section>
+
+    <div style="height:40vh"></div>
+    <p style="text-align:center;color:#666;font-size:13px">End of test — scroll back up.</p>
   </div>"""
     elif title == "Easter":
         content = """
@@ -733,10 +900,10 @@ BASE = "/root/aurion-website/en"
 
 pages = {
     "index.html": make_page("Aurion", "Digital Services", "", is_home=True, active="home", slug="index.html"),
-    "about.html": make_page("About", "About", "We won't pretend we're not nosy. But at least we're not here for your money — just trying to make things right. That's all.", active="about", slug="about.html"),
-    "projects.html": make_page("Projects", "Projects", "", active="projects", slug="projects.html"),
-    "projects/forge.html": make_page("Forge", "Forge", "", active="projects", slug="projects/forge.html"),
-    "next.html": make_page("Next", "Next", "", active="next", slug="next.html"),
+    "about.html": make_page("About", "About", "Aurion holds independent studios under one layer and keeps them sharp. Every field. One standard: evidence over opinion.", active="about", slug="about.html"),
+    "studios.html": make_page("Studios", "Studios", "", active="studios", slug="studios.html"),
+    "animtest.html": make_page("AnimTest", "AnimTest", "", active="", slug="animtest.html"),
+    "projects/forge.html": make_page("Forge", "Forge", "", active="studios", slug="projects/forge.html"),
     "contact.html": make_page("Contact", "Contact", "You don't find us — we find you. Don't take it personally. We're not saying no — we're saying not yet. We believe in you more than you know. And when the time comes, we'll have found you. For now, just carry the fire.", active="contact", slug="contact.html"),
     "easter.html": make_page("Easter", "Easter", "", active="", slug="easter.html"),
 }
@@ -805,7 +972,7 @@ with open(os.path.join(ROOT_DIR, "robots.txt"), "w") as f:
     f.write("User-agent: *\nAllow: /\nSitemap: " + SITE_URL + "/sitemap.xml\n")
 print("Created robots.txt")
 with open(os.path.join(ROOT_DIR, "sitemap.xml"), "w") as f:
-    urls = ["en/", "en/about", "en/projects", "en/projects/forge", "en/next", "en/contact"]
+    urls = ["en/", "en/about", "en/studios", "en/projects/forge", "en/contact"]
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
         f.write(f"  <url><loc>{SITE_URL}/{u}</loc></url>\n")
