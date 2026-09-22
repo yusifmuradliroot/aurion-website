@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurion - Aurion</title>
+  <title>Aurion</title>
   <link rel="icon" type="image/png" href="/en/aurion-favicon.png">
   <meta name="description" content="Aurion — independent studio building focused digital tools.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aurion">
-  <meta property="og:title" content="Aurion - Aurion">
+  <meta property="og:title" content="Aurion">
   <meta property="og:description" content="Aurion — independent studio building focused digital tools.">
   <meta property="og:url" content="https://aurion-9530d2d6.vercel.app/en/index.html">
   <meta property="og:image" content="https://aurion-9530d2d6.vercel.app/en/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@aurionzen">
-  <meta name="twitter:title" content="Aurion - Aurion">
+  <meta name="twitter:title" content="Aurion">
   <meta name="twitter:description" content="Aurion — independent studio building focused digital tools.">
   <meta name="theme-color" content="#0A0A0A">
   <meta name="color-scheme" content="dark">
@@ -36,17 +36,18 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .banner-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .banner-logo img{height:28px;width:auto;flex-shrink:0;display:block;filter:invert(1)}
 .banner-logo span{font-size:14px;font-weight:700;letter-spacing:-.02em;color:#fff;transition:color .4s;line-height:1}
-.banner-nav{display:flex;gap:24px;align-items:center}
+.banner-nav{display:flex;gap:24px;align-items:center;position:relative}
 .banner-nav a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s;font-weight:500;line-height:1;display:inline-flex;align-items:center;position:relative}
-.banner-nav a:not(.banner-ig)::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:100%;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.25,.6,.35,1)}
-.banner-nav a:not(.banner-ig):hover::after,.banner-nav a.active::after{transform:scaleX(1);transform-origin:left}
+.banner-nav a:not(.banner-ig){padding-bottom:8px}
+.nav-ind{position:absolute;height:2px;border-radius:2px;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.55);opacity:0;transition:left .38s cubic-bezier(.25,.6,.35,1),width .38s cubic-bezier(.25,.6,.35,1),opacity .25s;pointer-events:none}
 .banner-nav a:hover{color:#fff}
 .banner-nav a.active{color:#fff;font-weight:600}
 .banner-logo span.active{color:#fff;font-weight:800}
-.banner-ig{display:inline-flex;align-items:center;align-self:center;gap:6px;padding:6px 14px;border-radius:980px;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06));-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);color:#fff;text-decoration:none;font-size:12px;font-weight:500;transition:all .3s;border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 1px rgba(255,255,255,.28),0 4px 16px rgba(0,0,0,.3);line-height:1;position:relative;overflow:hidden}
-.banner-ig::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.16);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.25,.6,.35,1)}
-.banner-ig:hover::before{transform:scaleX(1)}
-.banner-ig:hover{background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.12));box-shadow:inset 0 1px 1px rgba(255,255,255,.35),0 6px 20px rgba(0,0,0,.4)}
+.banner-ig{display:inline-flex;align-items:center;align-self:center;gap:6px;padding:6px 14px;border-radius:980px;background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%) padding-box,linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06)) padding-box,linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,.05)) border-box;-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);color:#fff;text-decoration:none;font-size:12px;font-weight:500;transition:all .3s;border:1px solid transparent;box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(255,255,255,.18),inset 1px 0 1px rgba(255,255,255,.12),inset -1px 0 1px rgba(255,255,255,.12),0 4px 16px rgba(0,0,0,.3);line-height:1;position:relative;overflow:hidden}
+.banner-ig:active{transform:scale(.96)}
+.banner-ig::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.18) 0%,rgba(255,255,255,.07) 45%,transparent 70%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");background-size:auto,120px 120px;opacity:0;transition:opacity .35s;pointer-events:none}
+.banner-ig:hover::before{opacity:1}
+.banner-ig:hover{background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%) padding-box,linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.12)) padding-box,linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,.08)) border-box;box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(255,255,255,.18),inset 1px 0 1px rgba(255,255,255,.12),inset -1px 0 1px rgba(255,255,255,.12),0 6px 20px rgba(0,0,0,.4)}
 .banner-ig svg{width:14px;height:14px;flex-shrink:0;display:block;position:relative;z-index:1}
 .banner-ig span{position:relative;z-index:1}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1002}
@@ -67,7 +68,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .top-banner.dark .banner-nav a:hover{color:#fff}
 .top-banner.dark .banner-nav a.active{color:#fff}
 .top-banner.dark .banner-logo span.active{color:#fff}
-.top-banner.dark .banner-ig{background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06));color:#fff;border-color:rgba(255,255,255,.2);box-shadow:inset 0 1px 1px rgba(255,255,255,.28),0 4px 16px rgba(0,0,0,.3)}
+.top-banner.dark .banner-ig{background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%) padding-box,linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06)) padding-box,linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,.05)) border-box;color:#fff;border-color:transparent;box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(255,255,255,.18),inset 1px 0 1px rgba(255,255,255,.12),inset -1px 0 1px rgba(255,255,255,.12),0 4px 16px rgba(0,0,0,.3)}
 @media (prefers-reduced-transparency:reduce){.top-banner,.banner-ig{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(10,10,10,.96);box-shadow:none}.top-banner.dark{background:rgba(0,0,0,.96)}.top-banner.dark .banner-ig{background:rgba(45,45,47,.98);box-shadow:none}}
 @media (max-width:768px){.banner-nav,.banner-ig{display:none!important}.hamburger{display:flex;margin-left:auto;align-self:center}.top-banner{padding:0 16px}footer{display:none!important}.page{padding:96px 20px 20px}.project-hero{padding:96px 20px 32px}.project-section{padding:0 20px 40px}.hero-cta{width:100%;justify-content:center;max-width:320px}}
 #site{display:flex;flex-direction:column;min-height:100vh}
@@ -204,6 +205,7 @@ footer.visible{transform:translateY(0)}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         <span>@aurionzen</span>
       </a>
+      <span class="nav-ind" id="navInd"></span>
     </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -276,7 +278,44 @@ footer.visible{transform:translateY(0)}
     const hc = document.querySelector('.home-center');
     if (hc && !hc.dataset.crtInit) { hc.dataset.crtInit = '1'; setTimeout(() => hc.classList.add('crt-active'), 1400); }
   }
-  function initPage() { updateBanner(); initHome(); initHomeEditable(); updateTiming(); scatterClouds(); initFooterReveal(); initMobileMenu(); initReveal(); }
+  function initPage() { updateBanner(); initHome(); initHomeEditable(); updateTiming(); scatterClouds(); initFooterReveal(); initMobileMenu(); initReveal(); initSpot(); initNavInd(); }
+  function navLinks() { const n = document.querySelector('.banner-nav'); return n ? Array.from(n.querySelectorAll('a:not(.banner-ig)')) : []; }
+  function moveNavInd(link) {
+    const ind = document.getElementById('navInd');
+    if (!ind) return;
+    if (!link) { ind.style.opacity = '0'; return; }
+    ind.style.opacity = '1';
+    ind.style.left = link.offsetLeft + 'px';
+    ind.style.width = link.offsetWidth + 'px';
+    ind.style.top = (link.offsetTop + link.offsetHeight - 3) + 'px';
+  }
+  function initNavInd() {
+    const nav = document.querySelector('.banner-nav');
+    if (!nav || nav.dataset.indInit) { syncNavInd(); return; }
+    nav.dataset.indInit = '1';
+    navLinks().forEach(a => {
+      a.addEventListener('mouseenter', () => moveNavInd(a));
+    });
+    nav.querySelectorAll('.banner-ig').forEach(b => {
+      b.addEventListener('mouseenter', () => moveNavInd(null));
+      b.addEventListener('mouseleave', syncNavInd);
+    });
+    nav.addEventListener('mouseleave', syncNavInd);
+    syncNavInd();
+  }
+  function syncNavInd() {
+    const links = navLinks();
+    moveNavInd(links.find(a => a.classList.contains('active')) || null);
+  }
+  function initSpot() {
+    document.querySelectorAll('.banner-ig').forEach(b => {
+      b.onmousemove = (e) => {
+        const r = b.getBoundingClientRect();
+        b.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        b.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      };
+    });
+  }
   let _revObs = null;
   function initReveal() {
     if (_revObs) _revObs.disconnect();
@@ -357,8 +396,10 @@ footer.visible{transform:translateY(0)}
   function updateTiming() {
     document.documentElement.style.setProperty('--slideDur', cloudDuration() + 'ms');
     document.documentElement.style.setProperty('--fadeDur', fadeDuration() + 'ms');
+    syncNavInd();
   }
   window.addEventListener('resize', updateTiming);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => syncNavInd());
   // note: no mousemove blur — empty edit screen persists until mouseleave / click-outside
   function initHomeEditable() {
     const el = document.querySelector('.editable-home');
